@@ -1,0 +1,43 @@
+<form [formGroup]="messageForm" (ngSubmit)="submitForm()">
+    <!-- Phone Number Field -->
+    <label for="phone">Phone Number</label>
+    <input type="text" id="phone" formControlName="phoneNumber" />
+    <div *ngIf="messageForm.get('phoneNumber')?.invalid && messageForm.get('phoneNumber')?.touched">
+      <small *ngIf="messageForm.get('phoneNumber')?.errors?.['required']">
+        Phone number is required.
+      </small>
+      <small *ngIf="messageForm.get('phoneNumber')?.errors?.['pattern']">
+        Enter a valid 10-digit phone number.
+      </small>
+    </div>
+  
+    <!-- Message Field -->
+    <label for="content">Message</label>
+    <textarea
+      id="content"
+      formControlName="content"
+      [attr.maxlength]="maxLength"
+      (keyup)="updateCharCount()"
+    ></textarea>
+    <div *ngIf="messageForm.get('content')?.invalid && messageForm.get('content')?.touched">
+      <small *ngIf="messageForm.get('content')?.errors?.['required']">
+        Message is required.
+      </small>
+      <small *ngIf="messageForm.get('content')?.errors?.['maxlength']">
+        Exceeded maximum length of {{ maxLength }} characters.
+      </small>
+    </div>
+  
+    <!-- Character Counter -->
+    <div class="char-counter">{{ charCount }}/{{ maxLength }}</div>
+  
+    <!-- Buttons -->
+    <div class="buttons">
+      <a href="#" class="clear-btn" (click)="clearForm($event)">Clear</a>
+      <button type="submit" class="submit-btn" [disabled]="messageForm.invalid">
+        Submit
+      </button>
+    </div>
+  </form>
+  
+  

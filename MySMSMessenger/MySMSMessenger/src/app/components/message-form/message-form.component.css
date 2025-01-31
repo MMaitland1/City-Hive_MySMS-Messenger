@@ -1,0 +1,73 @@
+form {
+    min-height: 350px; /* Ensures the form has a minimum height of 420px */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Keeps elements spaced properly */
+}
+
+
+
+label {
+    display: block;
+    margin: 10px 0 5px;
+    font-weight: normal; /* Removed bold */
+}
+
+input, textarea {
+    height: 40px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+
+    width: 96%
+}
+
+textarea {
+    height: 120px; /* Made the message box bigger */
+    resize: none;
+    width: 96%; /* Adjusted width for spacing */
+}
+
+.char-counter {
+    font-size: 12px;
+    text-align: right;
+    color: gray;
+}
+
+.buttons {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end; /* Aligns buttons to the right */
+    position: relative;
+    
+    width: 100%;
+    margin-top: 20px; /* Ensures spacing from input fields */
+}
+
+.clear-btn {
+    text-decoration: underline;
+    color: black;
+    font-size: 14px;
+    margin-right: auto; /* Pushes the Clear button to the left */
+    cursor: pointer;
+}
+
+.submit-btn {
+    background: black;
+    color: white;
+    padding: 12px 30px; /* Adjusted padding for a more balanced look */
+    border: none;
+    border-radius: 20px;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.submit-btn:hover {
+    opacity: 0.8;
+}
+
+
+small {
+    color: red;
+}

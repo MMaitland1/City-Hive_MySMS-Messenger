@@ -1,0 +1,14 @@
+<div class="message-container">
+  <div *ngFor="let message of messages" class="message-box">
+    <div class="message-header">
+      <span class="phone-number"
+        ><strong>{{ message.phoneNumber }}</strong></span
+      >
+      <span class="timestamp">{{ message.timestamp }}</span>
+    </div>
+    <div class="message-content">
+      {{ message.content }}
+    </div>
+    <div class="char-count">{{ message.charCount }}/250</div>
+  </div>
+</div>

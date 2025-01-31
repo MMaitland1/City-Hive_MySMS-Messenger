@@ -1,0 +1,68 @@
+.message-container {
+    overflow-y: auto;
+    overflow-x: hidden;
+    height: calc(100% - 20px); /* Adjust height to prevent cutoff */
+    padding-right: 40px; /* Moves scrollbar 5 pixels to the right */
+    box-sizing: content-box;
+    width: 96%;
+    display: flex;
+    flex-direction: column; /* Ensures messages stack properly */
+    justify-content: flex-start;
+}
+
+/* Fix for scrollbar cutting off */
+.message-container::-webkit-scrollbar {
+    width: 5px;
+}
+
+.message-container::-webkit-scrollbar-track {
+    background: #dddddd;
+}
+
+.message-container::-webkit-scrollbar-thumb {
+    background: #444444;
+    border-radius: 5px;
+}
+
+/* Ensure message-box takes full width without extra margins */
+.message-box {
+    width: 100%;
+    right: 10px;
+    border-radius: 8px;
+    padding: 10px;
+    background-color: white;
+    position: relative;
+    flex-shrink: 0; /* Prevents shrinking */
+}
+
+.message-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.phone-number {
+    font-weight: bold;
+}
+
+.timestamp {
+    font-size: 12px;
+    color: rgb(0, 0, 0);
+}
+
+.message-content {
+    font-size: 14px;
+    padding: 8px;
+    border: 1px solid #8a8a8a;
+    border-radius: 5px;
+    background-color: #ffffff;
+}
+
+.char-count {
+    font-size: 12px;
+    color: gray;
+    text-align: right;
+    margin-top: 5px;
+}
