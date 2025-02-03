@@ -8,97 +8,104 @@ import {
 import { Router, NavigationEnd } from '@angular/router';
 import { Message } from './models/Message';
 import { RubyApiService } from './services/ruby-api.service'; 
-import { SessionService } from './services/session.service'; // Import SessionService
+import { SessionService } from './services/session.service';
 import { isPlatformBrowser } from '@angular/common';
-import { CacheService } from './services/CacheService'
+import { CacheService } from './services/CacheService';
+
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css'],
+  selector: 'app-root', // Defines the selector for this component in the HTML
+  templateUrl: './app.component.html', // Path to the HTML template for this component
+  styleUrls: ['./app.component.css'], // Path to the component's stylesheet
 })
 export class AppComponent implements OnInit {
-  title = 'MySMSMessenger';
-  pageTitle = 'Home'; // Default title
-  historyLength: number = 0; // Initialize historyLength
-  isWideEnough: boolean = true;
+  // Application core properties
+  title = 'MySMSMessenger'; // The main title of the app
+  pageTitle = 'Home'; // The title of the current page (dynamic)
+  historyLength: number = 0; // Keeps track of the number of messages in the history
+  isWideEnough: boolean = true; // Flag to check if the window is wide enough for a specific layout
 
   constructor(
-    private router: Router,
-    private apiService: RubyApiService,
-    private sessionService: SessionService, // Inject SessionService
-    private cacheService: CacheService,
-    @Inject(PLATFORM_ID) private platformId: Object
+    private router: Router, // Injects the Router to handle routing and navigation
+    private apiService: RubyApiService, // Injects the API service to interact with backend APIs
+    private sessionService: SessionService, // Injects the SessionService to manage user sessions
+    private cacheService: CacheService, // Injects the CacheService to manage cached data
+    @Inject(PLATFORM_ID) private platformId: Object // Injects PLATFORM_ID to detect the platform (browser or server)
   ) {
+    // Subscribe to router navigation events to update the title and check for message history on route changes
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
-        
-        if(event.urlAfterRedirects === '/messageHistory') {
-        this.checkForMessageHistory(event.urlAfterRedirects);
-        }this.updateTitle(event.urlAfterRedirects);
+        if (event.urlAfterRedirects === '/messageHistory') {
+          this.checkForMessageHistory(event.urlAfterRedirects);
+        }
+        this.updateTitle(event.urlAfterRedirects); // Update the title based on the new URL
       }
     });
   }
 
   ngOnInit() {
+    // Initialize browser-specific functionality (e.g., checking window size)
     if (isPlatformBrowser(this.platformId)) {
-      // Initialize session storage only in the browser
-      this.checkWindowSize();
+      this.checkWindowSize(); // Run window size check on initialization
     }
   }
 
-  // Use SessionService to check for login status
+  // Check user login status via SessionService
   isLoggedIn(): boolean {
-    const userSession = this.sessionService.getSessionData();
-    return userSession !== null && userSession.usernameHash !== '';
+    const userSession = this.sessionService.getSessionData(); // Get the current user session
+    return userSession !== null && userSession.usernameHash !== ''; // Return true if the user is logged in
   }
 
-  // Use SessionService to logout
+  // Logout method: clear session and navigate to home
   logout(): void {
-    this.sessionService.clearSessionData();
-    this.cacheService.clear() // Use SessionService to clear session
-    this.router.navigate(['/']);
+    this.sessionService.clearSessionData(); // Clear user session data
+    this.cacheService.clear(); // Clear cached data
+    this.router.navigate(['/']); // Navigate back to the home page
   }
 
+  // Responsive design: handle window resize to adjust layout dynamically
   @HostListener('window:resize', ['$event'])
   onResize(event: any) {
     if (isPlatformBrowser(this.platformId)) {
-      this.checkWindowSize();
+      this.checkWindowSize(); // Recheck the window size when resizing
     }
   }
 
+  // Check and set responsive layout based on window width
   checkWindowSize() {
     if (isPlatformBrowser(this.platformId)) {
-      this.isWideEnough = window.innerWidth > 1100;
+      this.isWideEnough = window.innerWidth > 1100; // Adjust layout if window width is greater than 1100px
     }
   }
 
+  // Retrieve message history for the current user
   checkForMessageHistory(url: string) {
     if (
-      isPlatformBrowser(this.platformId) &&
-      (url === '/message' || url === '/messageHistory')
+      isPlatformBrowser(this.platformId) && // Ensure this is running in the browser
+      (url === '/message' || url === '/messageHistory') // Check if we are navigating to message-related routes
     ) {
-      const userSession = this.sessionService.getSessionData();
-      const usernameHash = userSession ? userSession.usernameHash : '';
+      const userSession = this.sessionService.getSessionData(); // Get the current user session
+      const usernameHash = userSession ? userSession.usernameHash : ''; // Get the username hash of the logged-in user
       
+      // If the user is logged in, fetch their message history
       if (usernameHash) {
         this.apiService.readMessagesByUsernameHash(usernameHash).subscribe((messages: Message[]) => {
-          this.historyLength = messages.length;
-
+          this.historyLength = messages.length; // Update the history length based on the number of messages
         });
       }
     }
   }
 
+  // Dynamic page title management: Update the title based on the current route
   updateTitle(url: string) {
-    
+    // Mapping of route URLs to page titles
     const titleMap: { [key: string]: string } = {
-      '/': ' ',
-      '/login': 'Log In',
-      '/signup': 'Sign Up',
-      '/message': 'New Message',
-      '/messageHistory': `Message History(${this.historyLength})`, // Dynamically set history length
+      '/': ' ', // Home page title
+      '/login': 'Log In', // Login page title
+      '/signup': 'Sign Up', // Sign-up page title
+      '/message': 'New Message', // New message page title
+      '/messageHistory': `Message History(${this.historyLength})`, // Message history page title with dynamic length
     };
-    this.pageTitle = titleMap[url] || 'Unknown Page';
-  this.checkForMessageHistory(url);
+    this.pageTitle = titleMap[url] || 'Unknown Page'; // Set the title for the current page based on the URL
+    this.checkForMessageHistory(url); // Also check for message history if the URL is related to messages
   }
 }

@@ -1,28 +1,47 @@
 <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
   <!-- Username Input -->
   <label for="username" class="username">Username</label>
+  <!-- The label associated with the 'username' input field. -->
   <input type="text" id="username" formControlName="username" class="username">
+  <!-- The input field for the username. It's bound to the 'username' form control. -->
+
+  <!-- Validation Error for Username -->
   <small *ngIf="loginForm.get('username')?.invalid && loginForm.get('username')?.touched" class="error-username">
     Username is required.
   </small>
+  <!-- If the username is invalid and touched, this error message will appear. -->
 
   <!-- Password Input -->
   <label for="password" class="password">Password</label>
+  <!-- The label associated with the 'password' input field. -->
   <input [type]="showPassword ? 'text' : 'password'" id="password" formControlName="password" class="password">
+  <!-- The input field for the password. It dynamically switches between 'text' and 'password' input types based on the 'showPassword' boolean. -->
+
+  <!-- Login Error Message -->
   <small *ngIf="loginError" class="error-login">
     {{ loginError }}
   </small>
+  <!-- If there is a login error (e.g., wrong credentials), this message will display the error message dynamically. -->
+
+  <!-- Password Validation Error -->
   <small *ngIf="!loginError && loginForm.get('password')?.invalid && loginForm.get('password')?.touched" class="error-password">
     Password is required.
   </small>
+  <!-- If there is no login error and the password field is invalid and touched, this error message will display. -->
+
+  <!-- Show Password Toggle -->
   <label class="show-password-toggle">
     <span>Show Password</span>
+    <!-- Label for the 'Show Password' checkbox. -->
     <input type="checkbox" [checked]="showPassword" (change)="toggleShowPassword($event)">
+    <!-- Checkbox that allows the user to toggle password visibility. When checked, it will show the password in plain text. -->
   </label>
 
   <!-- Buttons -->
   <div class="buttons">
     <a href="#" class="clear-btn" (click)="clearForm($event)">Clear</a>
+    <!-- The 'Clear' button resets the form when clicked. It triggers the clearForm method in the component. -->
     <button type="submit" class="submit-btn" [disabled]="loginForm.invalid">Submit</button>
+    <!-- The 'Submit' button is disabled if the form is invalid (i.e., username or password is missing or incorrect). -->
   </div>
 </form>

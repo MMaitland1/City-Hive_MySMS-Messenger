@@ -1,20 +1,19 @@
+/* Styling for the message container */
 .message-container {
-    background: white;
-    padding: 40px;
-    border-radius: 12px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-    width: 350px;
-    height: 430px;
-    text-align: left;
-    font-family: Arial, sans-serif;
-    position: relative;
-
+    background: white; /* Sets the background color of the container to white */
+    padding: 40px; /* Adds padding inside the container to create space between content and borders */
+    border-radius: 12px; /* Rounds the corners of the container to make it visually softer */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Adds a subtle shadow around the container for depth and separation from the background */
+    width: 350px; /* Sets the width of the container */
+    height: 430px; /* Sets the height of the container */
+    text-align: left; /* Aligns text inside the container to the left */
+    font-family: Arial, sans-serif; /* Sets the font of the text to Arial (if unavailable, defaults to sans-serif) */
+    position: relative; /* Allows positioning of child elements inside the container */
 }
-
 
 /* Title Styling */
 h2 {
-    margin-top: 0;
-    font-size: 20px;
-    color: #000000;
+    margin-top: 0; /* Removes any default margin at the top of the <h2> element */
+    font-size: 20px; /* Sets the font size of the title to 20px */
+    color: #000000; /* Sets the color of the title text to black */
 }

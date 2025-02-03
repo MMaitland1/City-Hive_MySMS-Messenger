@@ -1,68 +1,76 @@
+/* Container for all messages */
 .message-container {
-    overflow-y: auto;
-    overflow-x: hidden;
-    height: calc(100% - 20px); /* Adjust height to prevent cutoff */
-    padding-right: 40px; /* Moves scrollbar 5 pixels to the right */
-    box-sizing: content-box;
-    width: 96%;
-    display: flex;
-    flex-direction: column; /* Ensures messages stack properly */
-    justify-content: flex-start;
+    overflow-y: auto; /* Enables vertical scrolling */
+    overflow-x: hidden; /* Disables horizontal scrolling */
+    height: calc(100% - 20px); /* Adjust height to ensure no content gets cut off */
+    padding-right: 40px; /* Moves the scrollbar 40px to the right */
+    box-sizing: content-box; /* Ensures padding doesn't affect total width */
+    width: 96%; /* Sets the container width to 96% of its parent element */
+    display: flex; /* Enables flexbox layout for the container */
+    flex-direction: column; /* Stacks the messages vertically */
+    justify-content: flex-start; /* Aligns messages at the top */
 }
 
-/* Fix for scrollbar cutting off */
+/* Custom styling for the scrollbar */
 .message-container::-webkit-scrollbar {
-    width: 5px;
+    width: 5px; /* Sets the width of the scrollbar */
 }
 
+/* Styling for the scrollbar track */
 .message-container::-webkit-scrollbar-track {
-    background: #dddddd;
+    background: #dddddd; /* Light grey background for the scrollbar track */
 }
 
+/* Styling for the scrollbar thumb (the draggable part) */
 .message-container::-webkit-scrollbar-thumb {
-    background: #444444;
-    border-radius: 5px;
+    background: #444444; /* Darker color for the scrollbar thumb */
+    border-radius: 5px; /* Rounds the corners of the scrollbar thumb */
 }
 
-/* Ensure message-box takes full width without extra margins */
+/* Ensures the message box takes up full width */
 .message-box {
-    width: 100%;
-    right: 10px;
-    border-radius: 8px;
-    padding: 10px;
-    background-color: white;
-    position: relative;
-    flex-shrink: 0; /* Prevents shrinking */
+    width: 100%; /* Makes sure the message box spans the full width of the container */
+    right: 10px; /* Adjusts the position of the message box to the right */
+    border-radius: 8px; /* Rounds the corners of the message box */
+    padding: 10px; /* Adds padding inside the message box */
+    background-color: white; /* Sets the background color of the message box */
+    position: relative; /* Allows positioning of elements inside the box */
+    flex-shrink: 0; /* Prevents the message box from shrinking */
 }
 
+/* Header for each message containing the phone number and timestamp */
 .message-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 14px;
-    margin-bottom: 5px;
+    display: flex; /* Uses flexbox to layout the phone number and timestamp */
+    justify-content: space-between; /* Spreads the phone number and timestamp apart */
+    align-items: center; /* Vertically aligns the elements in the center */
+    font-size: 14px; /* Sets the font size for the header */
+    margin-bottom: 5px; /* Adds space below the header */
 }
 
+/* Styling for the phone number */
 .phone-number {
-    font-weight: bold;
+    font-weight: bold; /* Makes the phone number bold */
 }
 
+/* Styling for the timestamp */
 .timestamp {
-    font-size: 12px;
-    color: rgb(0, 0, 0);
+    font-size: 12px; /* Sets the font size for the timestamp */
+    color: rgb(0, 0, 0); /* Sets the color of the timestamp to black */
 }
 
+/* Content section of the message */
 .message-content {
-    font-size: 14px;
-    padding: 8px;
-    border: 1px solid #8a8a8a;
-    border-radius: 5px;
-    background-color: #ffffff;
+    font-size: 14px; /* Sets the font size for the message content */
+    padding: 8px; /* Adds padding inside the content area */
+    border: 1px solid #8a8a8a; /* Adds a border around the message content */
+    border-radius: 5px; /* Rounds the corners of the message content */
+    background-color: #ffffff; /* Sets the background color to white */
 }
 
+/* Character count displayed below each message */
 .char-count {
-    font-size: 12px;
-    color: gray;
-    text-align: right;
-    margin-top: 5px;
+    font-size: 12px; /* Sets the font size for the character count */
+    color: gray; /* Sets the color of the character count to gray */
+    text-align: right; /* Aligns the character count to the right */
+    margin-top: 5px; /* Adds space above the character count */
 }

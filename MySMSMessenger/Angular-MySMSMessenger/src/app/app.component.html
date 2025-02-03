@@ -1,24 +1,36 @@
 <div class="header">
+  <!-- Title of the application -->
   MY SMS MESSENGER
+
+  <!-- Conditionally render the "Log out" link if the user is logged in -->
   <ng-container *ngIf="isLoggedIn()">
+    <!-- The logout function is triggered when the link is clicked -->
     <a (click)="logout()" class="logout-link">Log out</a>
   </ng-container>
 </div>
+
 <div id="container">
-  <!-- Only show the link if the window is not wide enough -->
+  <!-- Conditionally display the "Message History" link if the pageTitle is "New Message" 
+       and the window size is not wide enough -->
   <ng-container *ngIf="pageTitle === 'New Message' && !isWideEnough">
+    <!-- The link navigates to the message history page -->
     <a [routerLink]="['/messageHistory']" class="message-history-link">
       Message History
     </a>
   </ng-container>
 
+  <!-- Display a component called 'app-display' and pass the current page title as an input -->
   <app-display [title]="pageTitle">
+    <!-- The 'router-outlet' directive marks where routed components will be displayed -->
     <router-outlet></router-outlet>
   </app-display>
 
+  <!-- Conditionally render content if the pageTitle is "New Message" and the window is wide enough -->
   <ng-container *ngIf="pageTitle === 'New Message' && isWideEnough">
     <div class="side-by-side-container">
+      <!-- Display the message history with the number of messages dynamically shown in the title -->
       <app-display [title]="'Message History (' + historyLength + ')'">
+        <!-- Component to display the list of messages -->
         <app-messages></app-messages>
       </app-display>
     </div>

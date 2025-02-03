@@ -1,59 +1,59 @@
 /* Header Styling */
 h1 {
-    font-size: 36px;
-    color: #333;
-    text-align: left;
-    margin-top: 20px;
-    margin-left: 20px;
-    margin-bottom: -5px;
+    font-size: 36px; /* Sets the font size of the h1 element to 36 pixels. */
+    color: #333; /* Sets the color of the h1 text to a dark gray (#333). */
+    text-align: left; /* Aligns the h1 text to the left. */
+    margin-top: 20px; /* Adds a 20-pixel top margin to the h1 element, creating space above it. */
+    margin-left: 20px; /* Adds a 20-pixel left margin to the h1 element, indenting it from the left edge. */
+    margin-bottom: -5px; /* Adds a -5-pixel bottom margin. This can be used to reduce the default spacing between the h1 and the following element, effectively pulling the next element slightly closer.  Consider if this is really needed or if padding on the next element would be more predictable.*/
 }
 
 p {
-    font-size: 18px;
-    color: #777;
-    text-align: left;
-    margin-left: 20px;
-    margin-top: 10px;
+    font-size: 18px; /* Sets the font size of the p element to 18 pixels. */
+    color: #777; /* Sets the color of the p text to a lighter gray (#777). */
+    text-align: left; /* Aligns the p text to the left. */
+    margin-left: 20px; /* Adds a 20-pixel left margin to the p element, indenting it from the left edge. */
+    margin-top: 10px; /* Adds a 10-pixel top margin to the p element. */
 }
 
 /* Button Container Styling */
 .button-container {
-    display: flex;
-    justify-content: flex-start;
-    gap: 20px;
-    margin-top: 20px;
-    margin-left: 20px;
+    display: flex; /* Uses flexbox to arrange the buttons horizontally. */
+    justify-content: flex-start; /* Aligns the buttons to the left within the container. */
+    gap: 20px; /* Sets a 20-pixel gap between the buttons. */
+    margin-top: 20px; /* Adds a 20-pixel top margin to the button container. */
+    margin-left: 20px; /* Adds a 20-pixel left margin to the button container. */
 }
 
 /* Button Styling */
 button {
-    padding: 12px 24px;
-    font-size: 16px;
-    border: 2px solid;
-    border-radius: 30px; /* More circular shape */
-    cursor: pointer;
-    transition: background-color 0.3s ease, color 0.3s ease;
+    padding: 12px 24px; /* Sets the padding inside the button (12px top/bottom, 24px left/right). */
+    font-size: 16px; /* Sets the font size of the button text to 16 pixels. */
+    border: 2px solid; /* Sets a 2-pixel solid border for the button. */
+    border-radius: 30px; /* Makes the button's corners more rounded, creating a pill-like shape. */
+    cursor: pointer; /* Changes the mouse cursor to a pointer when hovering over the button, indicating it's clickable. */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Adds a smooth transition effect for background color and text color changes on hover.  The 0.3s specifies the duration of the transition, and 'ease' specifies the timing function. */
 }
 
 /* Login Button - White with Black Text */
 button.login {
-    background-color: white;
-    color: black;
-    border-color: black;
+    background-color: white; /* Sets the background color of the login button to white. */
+    color: black; /* Sets the text color of the login button to black. */
+    border-color: black; /* Sets the border color of the login button to black. */
 }
 
 button.login:hover {
-    background-color: #f0f0f0;
+    background-color: #f0f0f0; /* Sets a slightly darker background color on hover for the login button. */
 }
 
 /* Signup Button - Black with White Text */
 button.signup {
-    background-color: black;
-    color: white;
-    border-color: black;
-    margin-left: 40px;
+    background-color: black; /* Sets the background color of the signup button to black. */
+    color: white; /* Sets the text color of the signup button to white. */
+    border-color: black; /* Sets the border color of the signup button to black. */
+    margin-left: 40px; /* Adds a 40-pixel left margin to the signup button, positioning it further to the right than other buttons in the container. */
 }
 
 button.signup:hover {
-    background-color: #333;
+    background-color: #333; /* Sets a slightly lighter black background color on hover for the signup button. */
 }

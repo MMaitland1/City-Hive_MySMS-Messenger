@@ -1,5 +1,10 @@
 <div class="message-container">
-    <h2>{{ title }}</h2>
-    <ng-content></ng-content>
+    <!-- Title for the message container, dynamically set with Angular interpolation -->
+    <h2>{{ title }}</h2> 
+    <!-- 'title' is a variable in the component. Angular will replace this with the actual value from the component. -->
 
+    <!-- Content projection (ng-content) allows content to be inserted here from the parent component -->
+    <ng-content></ng-content> 
+    <!-- This allows you to pass content into the <div class="message-container"> from its parent component. 
+         The content placed between the opening and closing tags of this component will be rendered here. -->
 </div>

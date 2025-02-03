@@ -1,64 +1,57 @@
-<form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
-  <!-- Username Input -->
-  <label for="username">Username</label>
-  <input type="text" id="username" formControlName="username" />
-  <small
-    *ngIf="
-      signupForm.get('username')?.invalid && signupForm.get('username')?.touched
-    "
-    class="error"
-  >
-    Username is required.
-  </small>
+<!-- Angular Reactive Form: The form is bound to a FormGroup named 'signupForm' using the [formGroup] directive. 
+     When the form is submitted, the 'onSubmit()' method will be triggered. -->
+     <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
 
-  <!-- Password Input -->
-  <label for="password">Password</label>
-  <input
-    [type]="showPassword ? 'text' : 'password'"
-    id="password"
-    formControlName="password"
-  />
-  <small
-    *ngIf="
-      signupForm.get('password')?.invalid && signupForm.get('password')?.touched
-    "
-    class="error"
-  >
-    Password must be at least 6 characters long.
-  </small>
-
-  <!-- Confirm Password Input -->
-  <label for="confirmPassword">Confirm Password</label>
-  <input
-    [type]="showPassword ? 'text' : 'password'"
-    id="confirmPassword"
-    formControlName="confirmPassword"
-  />
-  <small
-    *ngIf="
-      signupForm.hasError('passwordsMismatch') &&
-      signupForm.get('confirmPassword')?.touched
-    "
-    class="error"
-  >
-    Passwords do not match.
-  </small>
-
-  <!-- Show Password Toggle -->
-  <label class="show-password-toggle">
-    <span>Show Password</span>
-    <input
-      type="checkbox"
-      [checked]="showPassword"
-      (change)="toggleShowPassword($event)"
-    />
-  </label>
-
-  <!-- Buttons -->
-  <div class="buttons">
-    <a href="#" class="clear-btn" (click)="clearForm($event)">Clear</a>
-    <button type="submit" class="submit-btn" [disabled]="signupForm.invalid">
-      Submit
-    </button>
-  </div>
-</form>
+      <!-- Username Field -->
+      <label for="username">Username</label> <!-- Label for the username input field. The 'for' attribute associates this label with the input field below. -->
+      <input type="text" id="username" formControlName="username" /> <!-- Input field for the username. 
+           The 'formControlName' directive binds this input to the 'username' control in the 'signupForm' FormGroup. -->
+    
+      <!-- Username Validation Error -->
+      <small *ngIf="signupForm.get('username')?.invalid && signupForm.get('username')?.touched" class="error">
+        Username is required. <!-- Error message displayed if the username field is invalid AND has been touched by the user. 
+           The 'invalid' property checks if the field fails validation, and 'touched' checks if the user has interacted with the field. -->
+      </small>
+    
+      <!-- Password Field -->
+      <label for="password">Password</label> <!-- Label for the password input field. -->
+      <input
+        [type]="showPassword ? 'text' : 'password'"  /> <!-- Input field for the password. 
+           The 'type' attribute is dynamically set based on the value of 'showPassword'. If 'showPassword' is true, the input type is 'text' (visible). Otherwise, it's 'password' (hidden). -->
+    
+      <!-- Password Validation Error -->
+      <small *ngIf="signupForm.get('password')?.invalid && signupForm.get('password')?.touched" class="error">
+        Password must be at least 6 characters long. <!-- Error message displayed if the password field is invalid AND has been touched by the user. 
+           The validation rule ensures the password is at least 6 characters long. -->
+      </small>
+    
+      <!-- Confirm Password Field -->
+      <label for="confirmPassword">Confirm Password</label> <!-- Label for the confirm password input field. -->
+      <input
+        [type]="showPassword ? 'text' : 'password'"  /> <!-- Input field for confirming the password. 
+           Similar to the password field, the 'type' attribute is dynamically set based on the value of 'showPassword'. -->
+    
+      <!-- Confirm Password Validation Error -->
+      <small *ngIf="signupForm.hasError('passwordsMismatch') && signupForm.get('confirmPassword')?.touched" class="error">
+        Passwords do not match. <!-- Error message displayed if the passwords in the password and confirm password fields do not match. 
+           The 'hasError' method checks for a custom validation error named 'passwordsMismatch'. -->
+      </small>
+    
+      <!-- Show Password Toggle -->
+      <label class="show-password-toggle">
+        <span>Show Password</span> <!-- Text label for the password visibility toggle. -->
+        <input type="checkbox" [checked]="showPassword" (change)="toggleShowPassword($event)" /> <!-- Checkbox input to toggle password visibility. 
+           The 'checked' property is bound to the 'showPassword' variable, and the 'change' event triggers the 'toggleShowPassword()' method when the checkbox is toggled. -->
+      </label>
+    
+      <!-- Form Buttons -->
+      <div class="buttons">
+        <!-- Clear Button: A link that triggers the 'clearForm()' method when clicked. 
+             The 'href="#"' prevents the page from reloading, and the 'click' event is handled by Angular. -->
+        <a href="#" class="clear-btn" (click)="clearForm($event)">Clear</a>
+    
+        <!-- Submit Button: A button to submit the form. 
+             The 'disabled' property is dynamically set based on the form's validity. If the form is invalid, the button is disabled. -->
+        <button type="submit" class="submit-btn" [disabled]="signupForm.invalid">Submit</button>
+      </div>
+    </form>

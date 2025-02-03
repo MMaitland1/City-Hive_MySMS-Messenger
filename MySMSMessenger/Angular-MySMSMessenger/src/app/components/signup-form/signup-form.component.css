@@ -1,109 +1,104 @@
 form {
-    min-height: 350px; /* Ensures the form has a minimum height of 420px */
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between; /* Keeps elements spaced properly */
+    min-height: 350px; /* Ensures the form has a minimum height of 350px */
+    display: flex; /* Use flexbox for layout */
+    flex-direction: column; /* Arrange children elements vertically */
+    justify-content: space-between; /* Distribute space between elements */
 }
 
-
-
 label {
-    display: block;
-    font-size: 14px;
-    margin-top: 15px;
-    align-self: flex-start; /* Ensures label text is aligned left */
-    
+    display: block; /* Makes label take up a full line */
+    font-size: 14px; /* Set font size for labels */
+    margin-top: 15px; /* Adds spacing above the label */
+    align-self: flex-start; /* Aligns label text to the left */
 }
 
 input {
-    width: 80%;
-    padding: 10px;
-    margin-top: 5px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 14px;
+    width: 80%; /* Makes input fields take up 80% of the container width */
+    padding: 10px; /* Adds padding inside the input field */
+    margin-top: 5px; /* Adds spacing between label and input */
+    border: 1px solid #ccc; /* Light grey border around input */
+    border-radius: 4px; /* Rounded corners for input */
+    font-size: 14px; /* Font size for the input text */
 }
 
 .button-group {
-    display: flex;
+    display: flex; /* Use flexbox for layout */
     justify-content: flex-start; /* Aligns buttons to the left */
-    width: 100%;
-    margin-top: 15px;
-    
+    width: 100%; /* Ensures the container takes up full width */
+    margin-top: 15px; /* Adds spacing between button group and form fields */
 }
 
 a {
-    text-decoration: none;
-    color: black;
-    font-size: 14px;
+    text-decoration: none; /* Removes underline from links */
+    color: black; /* Makes the link text black */
+    font-size: 14px; /* Font size for the link text */
 }
 
 button {
-    background-color: black;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 20px;
-    cursor: pointer;
-    font-size: 14px;
-    
-    
+    background-color: black; /* Sets button background color to black */
+    color: white; /* Sets button text color to white */
+    padding: 10px 20px; /* Adds padding inside the button */
+    border: none; /* Removes border around the button */
+    border-radius: 20px; /* Makes button corners rounded */
+    cursor: pointer; /* Changes cursor to pointer on hover */
+    font-size: 14px; /* Font size for the button text */
 }
+
 .buttons {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end; /* Aligns the buttons to the right */
-    margin-top: 80px; /* Moves buttons further down */
-    width: 100%;
-    padding-right:180px; /* Pushes the Sign Up button further right */
+    display: flex; /* Use flexbox for layout */
+    align-items: center; /* Vertically align buttons in the center */
+    justify-content: flex-end; /* Align buttons to the right */
+    margin-top: 80px; /* Adds top margin to move buttons down */
+    width: 100%; /* Full width container */
+    padding-right: 180px; /* Pushes the buttons further right */
 }
 
 .clear-btn {
-    text-decoration: underline;
-    color: black;
-    font-size: 14px;
-    cursor: pointer;
-    margin-right: auto; /* Pushes Clear button to the left */
+    text-decoration: underline; /* Underlines the text for clear button */
+    color: black; /* Sets text color to black */
+    font-size: 14px; /* Font size for the clear button text */
+    cursor: pointer; /* Changes cursor to pointer on hover */
+    margin-right: auto; /* Pushes the clear button to the left */
 }
-
 
 .submit-btn {
-    background: black;
-    color: white;
-    padding: 12px 0; /* Keep original padding */
-    border: none;
-    border-radius: 20px;
-    font-size: 16px;
-    cursor: pointer;
-    width: 35%; /* Keep original width */
-    text-align: center;
+    background: black; /* Sets background color to black */
+    color: white; /* Sets text color to white */
+    padding: 12px 0; /* Padding for the submit button (12px top and bottom) */
+    border: none; /* No border for the submit button */
+    border-radius: 20px; /* Rounded corners for submit button */
+    font-size: 16px; /* Larger font size for the submit button */
+    cursor: pointer; /* Pointer cursor on hover */
+    width: 35%; /* Sets the width of the submit button */
+    text-align: center; /* Centers the button text */
 }
+
 .submit-btn:hover {
-    opacity: 0.8;
+    opacity: 0.8; /* Slightly reduce opacity on hover to give a visual effect */
 }
 
 button:hover {
-    background-color: #333;
+    background-color: #333; /* Changes background to a darker color on hover */
 }
-
 
 .error {
-    color: red;
-    font-size: 12px;
-    align-self: flex-start; /* Moves error messages to the left */
-    margin-top: 8px;
+    color: red; /* Red color for error messages */
+    font-size: 12px; /* Smaller font size for error messages */
+    align-self: flex-start; /* Aligns error message to the left */
+    margin-top: 8px; /* Adds top margin for spacing */
 }
+
 .show-password-toggle {
-    display: flex;
-    align-items: center;
-    font-size: 12px;
-    margin-right: 20px;
-    gap: 10px; /* Add gap between text and checkbox */
-    white-space: nowrap;
-    margin-top: 10px;
+    display: flex; /* Use flexbox for layout */
+    align-items: center; /* Align text and checkbox vertically */
+    font-size: 12px; /* Smaller font size for the toggle text */
+    margin-right: 20px; /* Adds spacing to the right */
+    gap: 10px; /* Adds space between the checkbox and text */
+    white-space: nowrap; /* Prevents text from wrapping onto multiple lines */
+    margin-top: 10px; /* Adds top margin */
 }
 
 .show-password-toggle input[type="checkbox"] {
-    /* Remove margin-left */
-    margin-top: 2.5px;
+    margin-top: 2.5px; /* Adjusts the vertical alignment of the checkbox */
+    /* Removed margin-left as it's not needed */
 }

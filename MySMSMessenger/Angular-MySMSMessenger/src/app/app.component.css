@@ -1,69 +1,96 @@
-/* Header styling */
+/* Comprehensive Header Styling with Detailed Comments */
 .header {
-    text-align: center;
-    font-weight: 700;          /* Makes the text as thick as possible */
-    font-size: 35px;           
-    margin-top: 40px;          
-    position: absolute;        
-    width: 100%;               
-    top: 0;                    
-    left: 0;
-    padding: 10px 0;           
-    z-index: 10;     /* z-index of the header */
-  }
-  
-  .logout-link {
-    position: absolute;
-    top: -20px;
-    right: 20px;
+  text-align: center;        /* Center-align header text */
+  font-weight: 700;          /* Maximum text thickness for bold appearance */
+  font-size: 35px;           /* Large, prominent font size */
+  margin-top: 40px;          /* Top margin for vertical spacing */
+  position: absolute;        /* Absolute positioning for precise layout */
+  width: 100%;               /* Full-width header */
+  top: 0;                    /* Align to top of container */
+  left: 0;                   /* Align to left edge */
+  padding: 10px 0;           /* Vertical padding */
+  z-index: 10;               /* Ensure header sits above other elements */
+  background-color: transparent; /* Optional: make background transparent */
+  color: #000000;            /* Default black text color */
+}
 
-    color: black;
-    cursor: pointer;
-    font-size: 24px;
-  }
+/* Logout Link Styling with Enhanced Interactivity */
+.logout-link {
+  position: absolute;        /* Position relative to parent container */
+  top: -20px;                /* Precise vertical positioning */
+  right: 20px;               /* Align to right side */
+  color: black;              /* Black text color */
+  cursor: pointer;           /* Show pointer cursor on hover */
+  font-size: 24px;           /* Large, readable font size */
+  transition: all 0.3s ease; /* Smooth transition for hover effects */
+  text-decoration: none;     /* Remove default underline */
+}
 
-  .logout-link:hover {
-    text-decoration: underline;
-  }
-  /* Styling for the Message History link */
-  .message-history-link {
-    position: absolute;       /* Absolute positioning to place the link relative to its parent */
-    top: 20px;                /* Place it 20px from the top of the container */
-    left: 50%;                /* Place it at the center of the container */
-    transform: translateX(60%); /* Offset it by half its width to perfectly center */
-    font-size: 15px;
-    font-weight: bold;
-    color: #000000;
-    text-decoration: none;
-    z-index: 20;              /* Higher z-index to ensure it's above other content */
-  }
-  
-  .message-history-link:hover {
-    text-decoration: underline;
-  }
-  
-  /* Container styling */
-  #container {
-    display: flex;
-    justify-content: center;
-    margin-top: 100px; /* Add enough space so content is not hidden behind the header */
-    gap: 20px;
-    margin-left: 20px;
-    height: 100vh;
-    position: relative; /* Make the container the reference point for absolute positioning */
-    overflow: hidden;
-  
-  }
-  
-  /* Side-by-side container for wide screens */
+.logout-link:hover {
+  text-decoration: underline;/* Underline on hover */
+  opacity: 0.7;              /* Slight opacity change for visual feedback */
+}
+
+/* Message History Link with Advanced Positioning */
+.message-history-link {
+  position: absolute;        /* Absolute positioning for precise placement */
+  top: 20px;                 /* Distance from container top */
+  left: 50%;                 /* Center horizontally */
+  transform: translateX(60%);/* Fine-tune horizontal positioning */
+  font-size: 15px;           /* Smaller, subtle font size */
+  font-weight: bold;         /* Bold text for emphasis */
+  color: #000000;            /* Black text color */
+  text-decoration: none;     /* Remove default underline */
+  z-index: 20;               /* High z-index for visibility */
+  padding: 5px 10px;         /* Optional: add padding for larger click area */
+  border-radius: 4px;        /* Optional: rounded corners */
+  transition: background-color 0.3s ease; /* Smooth background transition */
+}
+
+.message-history-link:hover {
+  text-decoration: underline;/* Underline on hover */
+  background-color: rgba(0, 0, 0, 0.05); /* Subtle background change */
+}
+
+/* Main Container with Flexible Layout */
+#container {
+  display: flex;             /* Flexbox for responsive layout */
+  justify-content: center;   /* Center content horizontally */
+  align-items: flex-start;   /* Align items to top */
+  margin-top: 100px;         /* Space below header */
+  gap: 20px;                 /* Space between flex items */
+  margin-left: 20px;         /* Left margin */
+  height: calc(100vh - 100px);/* Full viewport height minus header */
+  position: relative;        /* Positioning context for absolute children */
+  overflow: hidden;          /* Hide overflowing content */
+  padding: 0 20px;           /* Horizontal padding */
+}
+
+/* Side-by-Side Container for Responsive Design */
+.side-by-side-container {
+  display: block;            /* Default to block display */
+  width: 100%;               /* Full width of parent */
+  max-width: 600px;          /* Optional: maximum width */
+}
+
+/* Responsive Media Query with Detailed Breakpoint */
+@media (max-width: 1100px) {
   .side-by-side-container {
-    display: block; /* Show it as a block so it takes up space */
+      display: none;         /* Hide on smaller screens */
   }
-  
-  /* Hide the side-by-side container when the window is not wide enough */
-  @media (max-width: 1100px) {
-    .side-by-side-container {
-      display: none; /* Hide the second container if the window width is less than 1100px */
-    }
+
+  .header {
+      font-size: 28px;       /* Smaller font for mobile */
+      margin-top: 20px;      /* Reduced top margin */
   }
-  
+
+  .logout-link {
+      top: -10px;            /* Adjust vertical position */
+      font-size: 20px;       /* Smaller logout link */
+  }
+}
+
+/* Optional: Scroll Prevention */
+body {
+  overflow-x: hidden;        /* Prevent horizontal scrolling */
+}
