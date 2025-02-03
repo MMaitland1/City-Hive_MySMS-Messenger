@@ -1,0 +1,145 @@
+/* Form Layout and Structure */
+form {
+    min-height: 420px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+}
+
+/* Label Styling */
+label {
+    display: block;
+    margin: 10px 0;
+    margin-bottom: -25px;
+    font-size: 14px;
+    align-self: flex-start;
+    position: relative;
+}
+
+/* Input Fields */
+input {
+    width: 80%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    height: 20px;
+    display: block;
+    position: relative;
+    margin-top: -50px;
+}
+
+/* Show Password Toggle */
+.show-password-toggle {
+    display: flex;
+    align-items: center;
+    font-size: 12px;
+    margin-right: 20px;
+    gap: 10px;
+    white-space: nowrap;
+    margin-top: -0px;
+}
+
+.show-password-toggle input[type="checkbox"] {
+    margin-top: -135px;
+    left: -10px;
+}
+
+.show-password-toggle span {
+    margin-top: -139px;
+}
+
+/* Specific Label Positioning */
+label.username {
+    margin-top: 30px;
+}
+
+label.password {
+    margin-top: -40px;
+}
+
+/* Error Message Handling */
+small.error-username, 
+small.error-password {
+    color: red;
+    font-size: 12px;
+    position: absolute;
+    left: 0;
+    opacity: 0; /* Invisible by default */
+    transition: opacity 0.3s ease-in-out;
+    
+    /* Prevent Layout Shift Key Strategies */
+    height: 14px; /* Reserve space */
+    overflow: hidden; /* Hide content while maintaining layout */
+    white-space: nowrap; /* Prevent text wrapping */
+    max-width: 100%; /* Ensure it doesn't break layout */
+}
+
+/* Specific Error Message Positioning */
+small.error-username {
+    margin-top: 97px;
+}
+
+small.error-password {
+    margin-top: 225px;
+    margin-bottom: 50px;
+}
+
+small.error-login {
+    font-size: 12px;
+    color: red;
+    
+    top: 39%;
+    /* Additional Anti-Displacement Properties */
+    position: fixed; 
+    
+}
+
+/* Show Error Message Trigger */
+.ng-invalid.ng-touched ~ small {
+    opacity: 1;
+    /* Optional: Add a smooth transition for appearance */
+    max-height: 20px; /* Allow some expansion */
+}
+
+/* Buttons Container */
+.buttons {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    position: relative;
+    top: -50px;
+    width: 100%;
+    margin-top: 40px;
+}
+
+/* Clear Button */
+.clear-btn {
+    text-decoration: underline;
+    color: black;
+    font-size: 14px;
+    margin-right: auto;
+    cursor: pointer;
+}
+
+/* Submit Button */
+.submit-btn {
+    background: black;
+    color: white;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 20px;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.submit-btn:hover {
+    opacity: 0.8;
+}
+
+/* General Button Hover */
+button:hover {
+    background-color: #333;
+}

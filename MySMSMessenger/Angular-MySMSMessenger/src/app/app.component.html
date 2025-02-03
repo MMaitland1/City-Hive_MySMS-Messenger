@@ -1,0 +1,26 @@
+<div class="header">
+  MY SMS MESSENGER
+  <ng-container *ngIf="isLoggedIn()">
+    <a (click)="logout()" class="logout-link">Log out</a>
+  </ng-container>
+</div>
+<div id="container">
+  <!-- Only show the link if the window is not wide enough -->
+  <ng-container *ngIf="pageTitle === 'New Message' && !isWideEnough">
+    <a [routerLink]="['/messageHistory']" class="message-history-link">
+      Message History
+    </a>
+  </ng-container>
+
+  <app-display [title]="pageTitle">
+    <router-outlet></router-outlet>
+  </app-display>
+
+  <ng-container *ngIf="pageTitle === 'New Message' && isWideEnough">
+    <div class="side-by-side-container">
+      <app-display [title]="'Message History (' + historyLength + ')'">
+        <app-messages></app-messages>
+      </app-display>
+    </div>
+  </ng-container>
+</div>

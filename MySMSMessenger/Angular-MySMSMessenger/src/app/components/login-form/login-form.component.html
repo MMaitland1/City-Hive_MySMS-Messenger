@@ -1,0 +1,28 @@
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+  <!-- Username Input -->
+  <label for="username" class="username">Username</label>
+  <input type="text" id="username" formControlName="username" class="username">
+  <small *ngIf="loginForm.get('username')?.invalid && loginForm.get('username')?.touched" class="error-username">
+    Username is required.
+  </small>
+
+  <!-- Password Input -->
+  <label for="password" class="password">Password</label>
+  <input [type]="showPassword ? 'text' : 'password'" id="password" formControlName="password" class="password">
+  <small *ngIf="loginError" class="error-login">
+    {{ loginError }}
+  </small>
+  <small *ngIf="!loginError && loginForm.get('password')?.invalid && loginForm.get('password')?.touched" class="error-password">
+    Password is required.
+  </small>
+  <label class="show-password-toggle">
+    <span>Show Password</span>
+    <input type="checkbox" [checked]="showPassword" (change)="toggleShowPassword($event)">
+  </label>
+
+  <!-- Buttons -->
+  <div class="buttons">
+    <a href="#" class="clear-btn" (click)="clearForm($event)">Clear</a>
+    <button type="submit" class="submit-btn" [disabled]="loginForm.invalid">Submit</button>
+  </div>
+</form>

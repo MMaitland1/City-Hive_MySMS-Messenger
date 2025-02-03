@@ -1,0 +1,23 @@
+development:
+  clients:
+    default:
+      database: MySMSMessages    # Default database for most models
+      hosts:
+        - localhost:27017
+      options:
+        server_selection_timeout: 5  # Increase timeout for stability
+
+    users:                # Separate client for the "users" database
+      database: MySMSUsers
+      hosts:
+        - localhost:27017
+      options:
+        server_selection_timeout: 5
+
+    messages:               
+      database: MySMSMessages
+      hosts:
+        - localhost:27017
+      options:
+        server_selection_timeout: 5
+

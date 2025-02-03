@@ -1,0 +1,64 @@
+<form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+  <!-- Username Input -->
+  <label for="username">Username</label>
+  <input type="text" id="username" formControlName="username" />
+  <small
+    *ngIf="
+      signupForm.get('username')?.invalid && signupForm.get('username')?.touched
+    "
+    class="error"
+  >
+    Username is required.
+  </small>
+
+  <!-- Password Input -->
+  <label for="password">Password</label>
+  <input
+    [type]="showPassword ? 'text' : 'password'"
+    id="password"
+    formControlName="password"
+  />
+  <small
+    *ngIf="
+      signupForm.get('password')?.invalid && signupForm.get('password')?.touched
+    "
+    class="error"
+  >
+    Password must be at least 6 characters long.
+  </small>
+
+  <!-- Confirm Password Input -->
+  <label for="confirmPassword">Confirm Password</label>
+  <input
+    [type]="showPassword ? 'text' : 'password'"
+    id="confirmPassword"
+    formControlName="confirmPassword"
+  />
+  <small
+    *ngIf="
+      signupForm.hasError('passwordsMismatch') &&
+      signupForm.get('confirmPassword')?.touched
+    "
+    class="error"
+  >
+    Passwords do not match.
+  </small>
+
+  <!-- Show Password Toggle -->
+  <label class="show-password-toggle">
+    <span>Show Password</span>
+    <input
+      type="checkbox"
+      [checked]="showPassword"
+      (change)="toggleShowPassword($event)"
+    />
+  </label>
+
+  <!-- Buttons -->
+  <div class="buttons">
+    <a href="#" class="clear-btn" (click)="clearForm($event)">Clear</a>
+    <button type="submit" class="submit-btn" [disabled]="signupForm.invalid">
+      Submit
+    </button>
+  </div>
+</form>
