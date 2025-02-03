@@ -1,4 +1,5 @@
 class TwilioService
+  # Initialize Twilio client with credentials
   def initialize
     # Fetch Twilio credentials from environment variables
     @client = Twilio::REST::Client.new(
@@ -7,30 +8,31 @@ class TwilioService
     )
     @from = ENV['TWILIO_PHONE_NUMBER']
 
-    # Check if credentials are missing
+    # Validate Twilio configuration
     raise "Twilio credentials are not configured" unless @client && @from
   end
 
-  # Method to send an SMS message using Twilio
+  # Send SMS message via Twilio
   def send_sms(to_phone_number, message_body)
+    # Validate input parameters
     return nil unless to_phone_number.present? && message_body.present?
 
     begin
-      # Send the SMS message using Twilio
+      # Send SMS using Twilio REST API
       message = @client.messages.create(
         from: @from,
         to: to_phone_number,
         body: message_body
       )
-      message.sid  # Return the SID of the message for tracking
+      message.sid  # Return message SID for tracking
     rescue Twilio::REST::TwilioError => e
-      # Log Twilio-specific errors
+      # Log and handle Twilio-specific errors
       Rails.logger.error("Twilio error: #{e.message}")
       raise "Failed to send message: #{e.message}"
     rescue => e
-      # Log unexpected errors
+      # Log and handle unexpected errors
       Rails.logger.error("Unexpected error: #{e.message}")
       raise "Unexpected error occurred while sending message"
     end
   end
-end
+ end

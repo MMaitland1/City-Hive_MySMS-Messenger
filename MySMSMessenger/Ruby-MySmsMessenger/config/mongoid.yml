@@ -1,23 +1,27 @@
+# MongoDB Configuration for Development Environment
+
 development:
-  clients:
-    default:
-      database: MySMSMessages    # Default database for most models
-      hosts:
-        - localhost:27017
-      options:
-        server_selection_timeout: 5  # Increase timeout for stability
+ clients:
+   # Default database client configuration
+   default:
+     database: MySMSMessages
+     hosts:
+       - localhost:27017
+     options:
+       server_selection_timeout: 5  # Timeout for database connection
 
-    users:                # Separate client for the "users" database
-      database: MySMSUsers
-      hosts:
-        - localhost:27017
-      options:
-        server_selection_timeout: 5
+   # Dedicated client for users database
+   users:
+     database: MySMSUsers
+     hosts:
+       - localhost:27017
+     options:
+       server_selection_timeout: 5
 
-    messages:               
-      database: MySMSMessages
-      hosts:
-        - localhost:27017
-      options:
-        server_selection_timeout: 5
-
+   # Dedicated client for messages database
+   messages:               
+     database: MySMSMessages
+     hosts:
+       - localhost:27017
+     options:
+       server_selection_timeout: 5
