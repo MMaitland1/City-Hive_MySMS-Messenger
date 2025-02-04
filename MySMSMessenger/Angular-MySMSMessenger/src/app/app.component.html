@@ -1,36 +1,43 @@
+<!-- Header section containing the title and the log-out functionality -->
 <div class="header">
-  <!-- Title of the application -->
+  <!-- The title of the application -->
   MY SMS MESSENGER
-
-  <!-- Conditionally render the "Log out" link if the user is logged in -->
+  
+  <!-- The ng-container renders the log-out link if the user is logged in. -->
+  <!-- isLoggedIn() is a function that returns a boolean indicating whether the user is logged in or not. -->
   <ng-container *ngIf="isLoggedIn()">
-    <!-- The logout function is triggered when the link is clicked -->
+    <!-- The logout function is invoked when the link is clicked, triggering the log-out process -->
     <a (click)="logout()" class="logout-link">Log out</a>
   </ng-container>
 </div>
 
+<!-- Main container for content inside the application -->
 <div id="container">
-  <!-- Conditionally display the "Message History" link if the pageTitle is "New Message" 
-       and the window size is not wide enough -->
+  
+  <!-- Conditional rendering based on the current page title ('New Message') and screen size (isWideEnough) -->
   <ng-container *ngIf="pageTitle === 'New Message' && !isWideEnough">
-    <!-- The link navigates to the message history page -->
+    <!-- If the page title is 'New Message' and the screen is not wide enough, show a link to the message history -->
+    <!-- This link navigates to the 'messageHistory' page using routerLink -->
     <a [routerLink]="['/messageHistory']" class="message-history-link">
       Message History
     </a>
   </ng-container>
 
-  <!-- Display a component called 'app-display' and pass the current page title as an input -->
+  <!-- Main content area where the display component is used to render dynamic content based on the page title -->
+  <!-- The title of the page is passed as an input to the 'app-display' component -->
   <app-display [title]="pageTitle">
-    <!-- The 'router-outlet' directive marks where routed components will be displayed -->
+    <!-- Router outlet, where the routed component will be rendered based on the active route -->
     <router-outlet></router-outlet>
   </app-display>
 
-  <!-- Conditionally render content if the pageTitle is "New Message" and the window is wide enough -->
+  <!-- Another conditional rendering based on the same 'New Message' title but when the screen is wide enough -->
   <ng-container *ngIf="pageTitle === 'New Message' && isWideEnough">
+    <!-- This section shows a side-by-side layout when the screen is wide enough -->
     <div class="side-by-side-container">
-      <!-- Display the message history with the number of messages dynamically shown in the title -->
-      <app-display [title]="'Message History (' + historyLength + ')'">
-        <!-- Component to display the list of messages -->
+      <!-- The display component shows the message history with a dynamic title that includes the number of messages in history -->
+      <!-- The async pipe is used to get the latest value from the 'historyLength' BehaviorSubject -->
+      <app-display [title]="'Message History (' + (historyLength | async) + ')'">
+        <!-- The app-messages component is embedded here to show the list of messages -->
         <app-messages></app-messages>
       </app-display>
     </div>

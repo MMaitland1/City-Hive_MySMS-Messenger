@@ -1,5 +1,3 @@
-Here is the code with detailed comments:
-Ruby
 # Define a new controller class called MessagesController that inherits from ApplicationController
 class MessagesController < ApplicationController
 
@@ -21,7 +19,6 @@ class MessagesController < ApplicationController
     render json: @messages
   end
 
-  # Define an action method called create, which handles POST requests to create new messages
   def create
     # Create a new message object using the message parameters provided in the request
     @message = Message.new(message_params)
@@ -38,7 +35,7 @@ class MessagesController < ApplicationController
           # If the SMS was sent successfully, render the created message as JSON with a 201 status code
           render json: @message, status: :created
         else
-          # If the SMS was not sent successfully, log the failed delivery details and destroy the message
+          # If the SMS was not sent successfully, log the failed delivery details
           puts "\nFailed SMS Delivery:"
           puts "Phone: #{@message.phoneNumber}"
           puts "Content: #{@message.content}"
@@ -46,12 +43,11 @@ class MessagesController < ApplicationController
           puts "Character Count: #{@message.charCount}"
           puts "Timestamp: #{@message.timestamp}"
 
-          @message.destroy
           # Render an error message as JSON with a 503 status code
           render json: { error: "Message saved but SMS delivery failed" }, status: :service_unavailable
         end
       rescue StandardError => e
-        # If an exception occurs during SMS sending, log the exception details and destroy the message
+        # If an exception occurs during SMS sending, log the exception details
         puts "\nSMS Sending Error:"
         puts "Phone: #{@message.phoneNumber}"
         puts "Content: #{@message.content}"
@@ -61,7 +57,6 @@ class MessagesController < ApplicationController
         puts "Error Message: #{e.message}"
         puts "Backtrace: #{e.backtrace.join("\n")}" if Rails.env.development?
 
-        @message.destroy
         # Render an error message as JSON with a 503 status code
         render json: { error: e.message }, status: :service_unavailable
       end
@@ -70,6 +65,7 @@ class MessagesController < ApplicationController
       render json: @message.errors, status: :unprocessable_entity
     end
   end
+
 
   # Define an action method called destroy_by_user, which handles DELETE requests to delete messages by username hash
   def destroy_by_user

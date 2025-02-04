@@ -1,14 +1,14 @@
-<div class="message-container"> <!-- Container for all messages -->
-  <div *ngFor="let message of messages" class="message-box"> <!-- Iterates over each message in the messages array -->
-    <div class="message-header"> <!-- Header section for each message containing phone number and timestamp -->
+<div class="message-container"> <!-- Container for all messages, wrapping all message elements -->
+  <div *ngFor="let message of messages" class="message-box"> <!-- Loops through each message in the messages array -->
+    <div class="message-header"> <!-- Header section of each message that contains sender's phone number and timestamp -->
       <span class="phone-number">
         <strong>{{ message.phoneNumber }}</strong> <!-- Displays the phone number of the sender in bold -->
       </span>
       <span class="timestamp">{{ message.timestamp }}</span> <!-- Displays the timestamp when the message was sent -->
     </div>
     <div class="message-content"> <!-- Content area for the message text -->
-      {{ message.content }} <!-- Displays the actual content of the message -->
+      {{ message.content }} <!-- Displays the content or body of the message -->
     </div>
-    <div class="char-count">{{ message.charCount }}/250</div> <!-- Displays the character count of the message out of 250 characters -->
+    <div class="char-count">{{ message.charCount }}/250</div> <!-- Displays the character count of the message out of the maximum 250 characters -->
   </div>
 </div>

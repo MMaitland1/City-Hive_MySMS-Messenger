@@ -1,4 +1,3 @@
-/* Comprehensive Header Styling with Detailed Comments */
 .header {
   text-align: center;        /* Center-align header text */
   font-weight: 700;          /* Maximum text thickness for bold appearance */
@@ -34,9 +33,9 @@
 /* Message History Link with Advanced Positioning */
 .message-history-link {
   position: absolute;        /* Absolute positioning for precise placement */
-  top: 20px;                 /* Distance from container top */
+  top: 24%;                  /* Center vertically */
   left: 50%;                 /* Center horizontally */
-  transform: translateX(60%);/* Fine-tune horizontal positioning */
+  transform: translateX(51%);/* Fine-tune horizontal positioning */
   font-size: 15px;           /* Smaller, subtle font size */
   font-weight: bold;         /* Bold text for emphasis */
   color: #000000;            /* Black text color */
@@ -49,27 +48,26 @@
 
 .message-history-link:hover {
   text-decoration: underline;/* Underline on hover */
-  background-color: rgba(0, 0, 0, 0.05); /* Subtle background change */
 }
 
 /* Main Container with Flexible Layout */
 #container {
   display: flex;             /* Flexbox for responsive layout */
   justify-content: center;   /* Center content horizontally */
-  align-items: flex-start;   /* Align items to top */
-  margin-top: 100px;         /* Space below header */
+  align-items: center;       /* Center content vertically */
   gap: 20px;                 /* Space between flex items */
-  margin-left: 20px;         /* Left margin */
+  width: 100%;               /* Full width of parent */
+
+  top: -50px;                /* Optional: Offset from top edge */
   height: calc(100vh - 100px);/* Full viewport height minus header */
   position: relative;        /* Positioning context for absolute children */
   overflow: hidden;          /* Hide overflowing content */
-  padding: 0 20px;           /* Horizontal padding */
 }
 
 /* Side-by-Side Container for Responsive Design */
 .side-by-side-container {
   display: block;            /* Default to block display */
-  width: 100%;               /* Full width of parent */
+              /* Full width of parent */
   max-width: 600px;          /* Optional: maximum width */
 }
 
@@ -80,14 +78,21 @@
   }
 
   .header {
-      font-size: 28px;       /* Smaller font for mobile */
+    left: -0%;
       margin-top: 20px;      /* Reduced top margin */
+      top :2%
   }
 
   .logout-link {
       top: -10px;            /* Adjust vertical position */
       font-size: 20px;       /* Smaller logout link */
   }
+
+  #container {
+    left: 0px;
+  }
+
+
 }
 
 /* Optional: Scroll Prevention */

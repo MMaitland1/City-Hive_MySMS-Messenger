@@ -16,7 +16,7 @@ require "rails/test_unit/railtie"
 Bundler.require(*Rails.groups)
 
 module RubyMySmsMessenger
- class Application < Rails::Configuration
+ class Application < Rails::Application
    # Rails version-specific configuration defaults
    config.load_defaults 8.0
 

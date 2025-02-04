@@ -91,7 +91,7 @@ small.error-login {
     font-size: 12px; /* Sets the font size of the login error message */
     color: red; /* Colors the error message red */
     
-    top: 39%; /* Vertically positions the error message */
+    top: 45.5%; /* Vertically positions the error message */
     position: fixed; /* Fixes the position of the login error message to the screen */
 }
 

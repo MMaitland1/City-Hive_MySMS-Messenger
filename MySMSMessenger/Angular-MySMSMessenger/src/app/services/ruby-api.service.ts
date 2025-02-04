@@ -21,7 +21,7 @@ const HTTP_OPTIONS = {
 })
 export class RubyApiService {
   // Configurable API Endpoint
-  private readonly API_URL = 'http://localhost:3000'; // Base URL for the backend API
+  private readonly API_URL = 'http://localhost:3000'//'; http://backend:3000// Base URL for the backend API
   private readonly CACHE_PREFIX = 'API_CACHE:'; // Prefix used to store cached data
   private readonly RETRY_ATTEMPTS = 2; // Number of retry attempts for failed requests
 

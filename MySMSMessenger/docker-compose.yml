@@ -1,0 +1,33 @@
+
+services:
+  backend:
+    build:
+      context: ./Ruby-MySmsMessenger
+    ports:
+      - "3000:3000"
+    networks:
+      - mynetwork
+    env_file:
+      - .env  # Load environment variables from .env file for the backend
+
+  frontend:
+    build:
+      context: ./Angular-MySMSMessenger
+    ports:
+      - "4200:4200"
+    networks:
+      - mynetwork
+    env_file:
+      - .env  # Load environment variables from .env file for the frontend
+
+  mongo:
+    image: mongo:latest
+    container_name: mongo
+    ports:
+      - "27017:27018"  # Mapping MongoDB default port 27017 to the host port 27018
+    networks:
+      - mynetwork
+
+networks:
+  mynetwork:
+    driver: bridge
