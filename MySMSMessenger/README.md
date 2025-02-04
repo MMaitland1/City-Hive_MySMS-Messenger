@@ -98,10 +98,7 @@ MySMSMessenger/
 ├── Gemfile                                           # Ruby project dependencies
 ├── Gemfile.lock                                      # Lock file for Ruby dependencies
 └── README.md                                         # Project documentation
-
 ```
-
----
 
 ## **Getting Started**
 
@@ -138,8 +135,6 @@ Before you start, ensure the following are installed on your machine:
 
 4. **Database Setup**:
    Ensure **MongoDB** is running, or use **Docker** to run MongoDB in a container. If using Docker, follow the steps below to set up the database.
-
-Absolutely! Let's dive deeper into these topics with more detailed explanations:
 
 ---
 
@@ -213,7 +208,7 @@ If you prefer to run the services **manually** without Docker, follow these step
      ```
 
      MongoDB will now be running on `localhost:27017`. The backend will communicate with MongoDB via this URI to store and retrieve messages.
----
+     
 
 ## **Environment Variables**
 
@@ -268,7 +263,6 @@ The **backend** of the application relies on several external services, such as 
    mongo_uri = ENV['MONGO_URI']
    ```
 
----
 
 ## **Available Routes**
 
@@ -339,7 +333,6 @@ The backend exposes a set of API endpoints for handling user authentication and 
      - **200 OK**: Successfully deleted messages for the specified user.
      - **404 Not Found**: If the user does not exist or no messages are found.
 
----
 
 ### **Frontend Routes**
 
@@ -381,12 +374,6 @@ For example:
 - **Route `/message`** (sending SMS) is only accessible to users who are logged in.
 - **Route `/messageHistory`** (viewing sent messages) is also protected and requires the user to be authenticated.
 
-Thank you for sharing the **User model** code! Here's a detailed breakdown of how this **User model** fits into the structure of the app:
-
----
-Great! Let's move on to the next two topics:
-
----
 
 ## **Database Structure**
 
@@ -523,8 +510,6 @@ networks:
 - **Mongoid** makes it easy to map **Ruby classes** to **MongoDB documents**, allowing Rails to interact with the **MongoDB database** just as easily as it would with a traditional relational database.
 - With **Mongoid::Document**, the `User` model becomes a MongoDB document that can be persisted, queried, and updated in the `users` collection.
 
----
-
 ### **Example Usage in the Application**
 
 #### **Creating a New User**
@@ -544,9 +529,7 @@ user = User.find_by(usernameHash: Digest::SHA256.hexdigest("username123"))
 
 This ensures that the user’s identity is verified via the **hashed identifier** rather than the raw username, enhancing security.
 
-Great! Let's continue with the next topics:
 
----
 
 ## **Deployment**
 
@@ -612,8 +595,8 @@ Using **Docker** simplifies the deployment process by ensuring that the applicat
    - After running `docker-compose up`, the app will be accessible at:
      - **Frontend**: [http://localhost:4200](http://localhost:4200)
      - **Backend API**: [http://localhost:3000](http://localhost:3000)
-
----
+    
+       
 
 ## **Running Without Docker**
 
