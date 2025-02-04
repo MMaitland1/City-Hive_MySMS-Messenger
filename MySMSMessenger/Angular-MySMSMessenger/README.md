@@ -1,6 +1,6 @@
 # **MySMS Messenger - Angular FrontEnd**
 
- ##**Overview**
+ ## **Overview**
 
 **MySMS Messenger - Frontend** is a **React** application designed to offer a seamless user experience for managing SMS messages through the **Twilio API**. The frontend allows users to securely sign up, log in, send messages, and view their message history. The app is built using **Angular**, and interacts with a **Ruby on Rails backend** to facilitate communication with the **Twilio API** and store message data in **MongoDB**.
 
