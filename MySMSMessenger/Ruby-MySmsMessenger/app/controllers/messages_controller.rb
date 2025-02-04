@@ -30,10 +30,9 @@ class MessagesController < ApplicationController
         twilio_service = TwilioService.new
         result = twilio_service.send_sms(@message.phoneNumber, @message.content)
 
-        # Check if the SMS was sent successfully
         if result
-          # If the SMS was sent successfully, render the created message as JSON with a 201 status code
-          render json: @message, status: :created
+          # If the SMS was sent successfully, render the created message as JSON with a 200 status code
+          render json: @message, status: :ok
         else
           # If the SMS was not sent successfully, log the failed delivery details
           puts "\nFailed SMS Delivery:"
@@ -43,8 +42,8 @@ class MessagesController < ApplicationController
           puts "Character Count: #{@message.charCount}"
           puts "Timestamp: #{@message.timestamp}"
 
-          # Render an error message as JSON with a 503 status code
-          render json: { error: "Message saved but SMS delivery failed" }, status: :service_unavailable
+          # Still return a 200 OK status, but note that the SMS delivery failed
+          render json: { message: "Message saved but SMS delivery failed" }, status: :ok
         end
       rescue StandardError => e
         # If an exception occurs during SMS sending, log the exception details
@@ -57,14 +56,15 @@ class MessagesController < ApplicationController
         puts "Error Message: #{e.message}"
         puts "Backtrace: #{e.backtrace.join("\n")}" if Rails.env.development?
 
-        # Render an error message as JSON with a 503 status code
-        render json: { error: e.message }, status: :service_unavailable
+        # Render a 200 OK status regardless of the exception, but with an error message
+        render json: { message: "Message saved, but an error occurred while sending SMS", error: e.message }, status: :ok
       end
     else
       # If the message cannot be saved, render the validation errors as JSON with a 422 status code
       render json: @message.errors, status: :unprocessable_entity
     end
   end
+
 
 
   # Define an action method called destroy_by_user, which handles DELETE requests to delete messages by username hash

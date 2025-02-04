@@ -23,29 +23,23 @@ module RubyMySmsMessenger
     config.load_defaults 8.0
 
     # Twilio Credentials Configuration
-    # Load Twilio environment variables from Rails credentials
-    # These variables are securely stored in the Rails credentials file
     ENV['TWILIO_ACCOUNT_SID'] ||= Rails.application.credentials.dig(:twilio, :account_sid)
     ENV['TWILIO_AUTH_TOKEN'] ||= Rails.application.credentials.dig(:twilio, :auth_token)
     ENV['TWILIO_PHONE_NUMBER'] ||= Rails.application.credentials.dig(:twilio, :phone_number)
 
     # Autoload Configuration
-    # Ignore non-Ruby subdirectories in the lib folder
-    # This prevents Rails from trying to autoload non-Ruby files
     config.autoload_lib(ignore: %w[assets tasks])
 
     # Cross-Origin Resource Sharing (CORS) Configuration
-    # Allow all origins and HTTP methods for API flexibility
-    # This allows the API to be accessed from any domain or application
+    # Allow only specified origins and methods for security
     config.middleware.insert_before 0, Rack::Cors do
       allow do
-        # Allow requests from all origins
-        origins '*'
-        # Allow requests to all resources
+        # Only allow specific origins for CORS
+        origins 'http://frontend:4200', 'http://localhost:4200'
+
+        # Define the resources that are accessible from the allowed origins
         resource '*',
-          # Allow all HTTP headers
           headers: :any,
-          # Allow all HTTP methods
           methods: [:get, :post, :put, :patch, :delete, :options, :head]
       end
     end
