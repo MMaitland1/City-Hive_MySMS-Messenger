@@ -35,33 +35,83 @@ The **MySMS Messenger Frontend** follows a structured, modular approach to ensur
 
 ```
 Angular-MySMSMessenger/
-├── src/                                          # Source files for the Angular application
-│   ├── app/                                      # Core application logic
-│   │   ├── components/                           # Reusable UI components
-│   │   │   ├── login-form/                       # Login component
-│   │   │   │   ├── login-form.component.ts       # Logic for login
-│   │   │   │   ├── login-form.component.html     # UI template for login
-│   │   │   ├── signup-form/                      # Signup component
-│   │   │   ├── message-form/                     # Form for composing SMS messages
-│   │   │   ├── messages/                         # Component for displaying message history
-│   │   │   ├── welcome/                          # Welcome screen component
-│   │   ├── services/                             # Services for handling API calls, caching, and authentication
-│   │   │   ├── session.service.ts                # Manages user session (login/logout)
-│   │   │   ├── ruby-api.service.ts               # Handles API calls to the backend
-│   │   │   ├── cache.service.ts                  # Caches frequently accessed API data
-│   │   │   ├── shared.service.ts                 # Shared service for triggering UI updates
-│   │   ├── models/                               # Data models used in the app
-│   │   │   ├── user.ts                           # User model definition
-│   │   │   ├── message.ts                        # Message model definition
-│   │   ├── app-routing.module.ts                 # Defines frontend routing
-│   │   ├── app.component.ts                      # Root component
-│   │   ├── app.module.ts                         # Main application module
-│   ├── assets/                                   # Static assets (images, icons, styles)
-│   ├── index.html                                # Main HTML file for rendering the app
-│   ├── styles.css                                # Global styles and themes
-├── .dockerignore                                 # Specifies files to ignore in Docker builds
-├── package.json                                  # Project dependencies and scripts
-├── README.md                                     # Documentation for the frontend
+├── src/                                             # Source files for Angular
+│   ├── app/                                         # Angular app
+│   │   ├── components/                              # Reusable Angular components
+│   │   │   ├── display/                             # Display component
+│   │   │   │   ├── display.component.ts             # Display component logic
+│   │   │   │   ├── display.component.html           # Display component template
+│   │   │   │   ├── display.component.css            # Display component styles
+│   │   │   │   ├── display.component.spec.ts        # Display component tests
+│   │   │   ├── login-form/                          # Login form component
+│   │   │   │   ├── login-form.component.ts          # Login form logic
+│   │   │   │   ├── login-form.component.html        # Login form template
+│   │   │   │   ├── login-form.component.css         # Login form styles
+│   │   │   │   ├── login-form.component.spec.ts     # Login form tests
+│   │   │   ├── signup-form/                         # Signup form component
+│   │   │   │   ├── signup-form.component.ts         # Signup form logic
+│   │   │   │   ├── signup-form.component.html       # Signup form template
+│   │   │   │   ├── signup-form.component.css        # Signup form styles
+│   │   │   │   ├── signup-form.component.spec.ts    # Signup form tests
+│   │   │   ├── message-form/                        # Message form component
+│   │   │   │   ├── message-form.component.ts        # Message form logic
+│   │   │   │   ├── message-form.component.html      # Message form template
+│   │   │   │   ├── message-form.component.css       # Message form styles
+│   │   │   │   ├── message-form.component.spec.ts   # Message form tests
+│   │   │   ├── messages/                            # Messages display component
+│   │   │   │   ├── messages.component.ts            # Messages component logic
+│   │   │   │   ├── messages.component.html          # Messages component template
+│   │   │   │   ├── messages.component.css           # Messages component styles
+│   │   │   │   ├── messages.component.spec.ts       # Messages component tests
+│   │   │   ├── welcome/                             # Welcome screen component
+│   │   │   │   ├── welcome.component.ts             # Welcome component logic
+│   │   │   │   ├── welcome.component.html           # Welcome component template
+│   │   │   │   ├── welcome.component.css            # Welcome component styles
+│   │   │   │   ├── welcome.component.spec.ts        # Welcome component tests
+│   │   │   ├── navbar/                              # Navbar component
+│   │   │   │   ├── navbar.component.ts              # Navbar logic
+│   │   │   │   ├── navbar.component.html            # Navbar template
+│   │   │   │   ├── navbar.component.css             # Navbar styles
+│   │   │   │   ├── navbar.component.spec.ts         # Navbar tests
+│   │   ├── services/                                # Angular services
+│   │   │   ├── auth.guard.ts                        # Authentication guard
+│   │   │   ├── cache.service.ts                     # Service for caching API responses
+│   │   │   ├── ruby-api.service.ts                  # API service for backend communication
+│   │   │   ├── session.service.ts                   # Service for session management
+│   │   │   ├── shared.service.ts                    # Shared service with helper functions
+│   │   ├── models/                                  # Angular models
+│   │   │   ├── Message.ts                           # Message model
+│   │   │   ├── User.ts                              # User model
+│   │   ├── pages/                                   # Page-level components for routing
+│   │   │   ├── home-page/                           # Home page component
+│   │   │   │   ├── home-page.component.ts           # Home page logic
+│   │   │   │   ├── home-page.component.html         # Home page template
+│   │   │   │   ├── home-page.component.css          # Home page styles
+│   │   │   ├── login-page/                          # Login page component
+│   │   │   │   ├── login-page.component.ts          # Login page logic
+│   │   │   │   ├── login-page.component.html        # Login page template
+│   │   │   │   ├── login-page.component.css         # Login page styles
+│   │   │   ├── signup-page/                         # Signup page component
+│   │   │   ├── messages-page/                       # Messages page component
+│   │   │   ├── profile-page/                        # User profile page component
+│   │   ├── assets/                                  # Static assets
+│   │   │   ├── images/                              # Image assets
+│   │   │   ├── icons/                               # Icon assets
+│   │   ├── app-routing.module.ts                    # Routing configuration
+│   │   ├── app.component.ts                         # Root component
+│   │   ├── app.module.ts                            # Main Angular module
+│   │   ├── environments/                            # Configuration files for environments
+│   │   │   ├── environment.ts                       # Development environment settings
+│   │   │   ├── environment.prod.ts                  # Production environment settings
+│   ├── index.html                                   # Main HTML file
+│   ├── styles.css                                   # Global styles
+├── angular.json                                     # Angular project configuration
+├── tsconfig.json                                    # TypeScript configuration
+├── Dockerfile                                       # Docker configuration for front-end
+├── package.json                                     # Front-end dependencies
+├── package-lock.json                                # Lock file for dependencies
+├── README.md                                        # Front-end documentation
+└── .gitignore                                       # Files to ignore in Git
 ```
 
 ## **Key Components & Services**
