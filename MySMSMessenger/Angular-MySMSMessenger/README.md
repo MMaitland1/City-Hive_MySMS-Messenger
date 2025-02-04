@@ -8,8 +8,6 @@
 - **Twilio Integration**: The **Twilio API** enables the app to send SMS messages. The frontend gathers user input, including message content and recipient phone number, and passes it to the backend. The backend handles communication with **Twilio**, ensuring the messages are sent to the desired recipients.
 - **Message History**: Users can view their message history, which is stored in **MongoDB**. The frontend fetches and displays sent messages, including the recipient’s phone number, message content, timestamp, and character count.
 
----
-
 ## **Key Features**
 
 ### **User Authentication**  
