@@ -30,12 +30,6 @@
 - **Error Handling and Retries**: The frontend makes use of robust error handling mechanisms, ensuring that failed requests are retried a set number of times. In case of errors, the app provides meaningful error messages to users. 
 
 ---
-Great! Now let's move on to the next two topics:  
-
-- **Project Structure**  
-- **Getting Started**  
-
----
 
 ## **Project Structure**  
 
@@ -72,10 +66,6 @@ Angular-MySMSMessenger/
 ├── README.md                                     # Documentation for the frontend
 ```
 
-Got it! Let's expand the **Key Components & Services** section with detailed explanations for each major part of the frontend, excluding the diagram.
-
----
-
 ## **Key Components & Services**
 
 The **MySMS Messenger Frontend** is structured into modular components and services that work together to provide a seamless user experience. This section covers the main components responsible for handling UI, API calls, authentication, caching, and state management.
@@ -111,8 +101,6 @@ The application consists of multiple **reusable components** that handle differe
 
 - **Shared Components**  
   - Common UI elements (buttons, alerts, modals) are centralized for reusability.  
-
----
 
 ### **2. Services (Handling API, Sessions, and Caching)**  
 
@@ -153,13 +141,9 @@ Services handle **data retrieval, API communication, caching, and session manage
 - Used for refreshing components after data updates (e.g., when new messages are sent).  
 - Helps maintain real-time UI consistency across different components.
 
----
-
 ## **Running the Application**  
 
 The **MySMS Messenger Frontend** can be run using **Docker Compose** (recommended) or manually with **npm**. This section provides instructions for both methods, along with troubleshooting tips.
-
----
 
 ### **Method 1: Using Docker (Recommended)**  
 
@@ -200,8 +184,6 @@ If you’ve made updates to the frontend code and need to apply them in Docker, 
 docker-compose up --build frontend
 ```
 
----
-
 ### **Method 2: Running Manually (Without Docker)**  
 
 If you prefer to run the frontend **without Docker**, follow these steps.
@@ -230,8 +212,6 @@ Once the server is running, open a browser and go to:
 
 #### **4. Stopping the Server**  
 To stop the server, press **CTRL + C** in the terminal.
-
----
 
 ## **Troubleshooting Common Issues**  
 
