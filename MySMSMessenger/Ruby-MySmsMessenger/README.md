@@ -8,8 +8,6 @@ The backend of MySMS Messenger plays a crucial role in handling the core operati
 - **Database interaction**: It manages user data (including user identifiers and message history) using MongoDB, ensuring data persistence.
 - **Business logic**: It houses the logic for phone number validation, SMS transmission, and tracking of message statuses, abstracting away complexity from the front end.
 
----
-
 ### 2. **Key backend features (Twilio integration, MongoDB storage, JWT authentication)**
 
 1. **Twilio Integration**:
@@ -26,8 +24,6 @@ The backend of MySMS Messenger plays a crucial role in handling the core operati
    - JSON Web Tokens (JWT) are used for user authentication. Instead of using sessions, the backend generates a token after a successful login, which the client (usually the frontend) stores and sends with each request to prove the user’s identity.
    - The backend validates the JWT with every protected API request, ensuring the requester is authenticated. This approach is stateless, meaning the server doesn’t need to store any session data.
    - The `JWT_SECRET_KEY` environment variable stores the secret key used to sign and verify tokens.
-
----
 
 ### 3. **Technology Stack**
 
@@ -50,8 +46,6 @@ The backend of MySMS Messenger plays a crucial role in handling the core operati
    - JWT is used for securing communication between the backend and the frontend, allowing stateless user authentication.
    - When a user logs in, the backend generates a JWT that encodes user information (e.g., user ID), which is signed with a secret key.
    - The JWT is included in HTTP requests (usually in the `Authorization` header) when the client interacts with protected resources (e.g., sending messages). The backend validates the token to ensure the user is authorized to perform the action.
-
----
 
 ### 4. **API Endpoints**
 
@@ -171,7 +165,6 @@ These endpoints handle the core functionality of sending, retrieving, and deleti
      - `200 OK`: When the messages are successfully deleted.
      - `404 Not Found`: If the user does not exist.
 
----
 ### 5. **Containerization: Docker**
 
 Containerization ensures that the backend and its dependencies are bundled in a portable, consistent environment. Docker is used to package the MySMS Messenger backend into containers, which can run anywhere Docker is supported (e.g., local machines, cloud environments).
@@ -243,11 +236,6 @@ Containerization ensures that the backend and its dependencies are bundled in a 
 - **Isolation**: Each service (e.g., backend API, MongoDB) runs in its container, isolated from others. This makes it easier to manage dependencies and avoid conflicts.
 - **Simplified Deployment**: With Docker, you can easily deploy MySMS Messenger to cloud environments or local servers without worrying about configuration differences between environments.
   
----
-
-Great! Let's move on to the next two topics:
-
----
 
 ### 6. **Project Structure (Backend)**
 
