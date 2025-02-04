@@ -290,8 +290,6 @@ Ruby-MySMSMessenger/
 
 - **`Gemfile`**: Specifies the Ruby gems (libraries) that the backend depends on, including Rails, Mongoid, JWT, RSpec, and other necessary gems for the application.
 
----
-
 ### 7. **Deployment**
 
 The deployment process involves setting up and running the application in a production environment. This could either be with Docker or manually.
