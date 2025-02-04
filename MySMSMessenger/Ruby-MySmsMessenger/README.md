@@ -260,10 +260,10 @@ Ruby-MySMSMessenger/
 │   │   │   ├── production.rb                        # Production environment config
 │   │   │   ├── test.rb                              # Test environment config
 │   │   ├── routes.rb                                # Routes configuration
-├── Dockerfile                                        # Docker configuration for back-end
-├── Gemfile                                           # Ruby project dependencies
-├── Gemfile.lock                                      # Lock file for Ruby dependencies
-└── README.md                                         # Back-end documentation
+├── Dockerfile                                       # Docker configuration for back-end
+├── Gemfile                                          # Ruby project dependencies
+├── Gemfile.lock                                     # Lock file for Ruby dependencies
+└── README.md                                        # Back-end documentation
 ```
 
 - **`app/`**: Contains the core application logic.
