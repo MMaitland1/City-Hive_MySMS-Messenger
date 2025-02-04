@@ -1,33 +1,72 @@
-
+# Define the services that make up the application
 services:
+  
+  # Service for the backend application
   backend:
+    # Build the Docker image for the backend service
     build:
+      # Specify the directory containing the Dockerfile for the backend service
       context: ./Ruby-MySmsMessenger
+    
+    # Map ports between the host and the container
     ports:
+      # Map host port 3000 to container port 3000
       - "3000:3000"
+    
+    # Specify the network for the backend service
     networks:
+      # Use the 'mynetwork' network defined later in the file
       - mynetwork
+    
+    # Load environment variables from a file for the backend service
     env_file:
-      - .env  # Load environment variables from .env file for the backend
+      # Load environment variables from a file named '.env' in the current directory
+      - .env
 
+  # Service for the frontend application
   frontend:
+    # Build the Docker image for the frontend service
     build:
+      # Specify the directory containing the Dockerfile for the frontend service
       context: ./Angular-MySMSMessenger
+    
+    # Map ports between the host and the container
     ports:
+      # Map host port 4200 to container port 4200
       - "4200:4200"
+    
+    # Specify the network for the frontend service
     networks:
+      # Use the 'mynetwork' network defined later in the file
       - mynetwork
+    
+    # Load environment variables from a file for the frontend service
     env_file:
-      - .env  # Load environment variables from .env file for the frontend
+      # Load environment variables from a file named '.env' in the current directory
+      - .env
 
+  # Service for the MongoDB database
   mongo:
+    # Use a pre-built MongoDB image from Docker Hub
     image: mongo:latest
+    
+    # Specify a name for the MongoDB container
     container_name: mongo
+    
+    # Map ports between the host and the container
     ports:
-      - "27017:27018"  # Mapping MongoDB default port 27017 to the host port 27018
+      # Map host port 27018 to container port 27017 (the default MongoDB port)
+      - "27017:27018"
+    
+    # Specify the network for the MongoDB service
     networks:
+      # Use the 'mynetwork' network defined later in the file
       - mynetwork
 
+# Define the networks for the application
 networks:
+  
+  # Define a network named 'mynetwork'
   mynetwork:
+    # Use the 'bridge' driver for the network
     driver: bridge

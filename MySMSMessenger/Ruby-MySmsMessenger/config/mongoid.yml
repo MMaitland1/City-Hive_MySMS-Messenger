@@ -1,25 +1,43 @@
+# Configuration for the development environment
 development:
+  # Configuration for MongoDB clients
   clients:
     # Default database client configuration
     default:
+      # Name of the MongoDB database to connect to
       database: MySMSMessages
+      # List of hosts to connect to (in this case, a single host)
       hosts:
-        - mongo:27017  # Change localhost to mongo (the service name)
+        # Connect to the MongoDB service on port 27017
+        # The 'mongo' hostname refers to the MongoDB service defined in the Docker Compose file
+        - mongo:27017
+      # Options for the MongoDB connection
       options:
+        # Set the server selection timeout to 5 seconds
         server_selection_timeout: 5
 
-    # Dedicated client for users database
+    # Dedicated client configuration for the 'users' database
     users:
+      # Name of the MongoDB database to connect to
       database: MySMSUsers
+      # List of hosts to connect to (in this case, a single host)
       hosts:
-        - mongo:27017  # Change localhost to mongo
+        # Connect to the MongoDB service on port 27017
+        - mongo:27017
+      # Options for the MongoDB connection
       options:
+        # Set the server selection timeout to 5 seconds
         server_selection_timeout: 5
 
-    # Dedicated client for messages database
+    # Dedicated client configuration for the 'messages' database
     messages:
+      # Name of the MongoDB database to connect to
       database: MySMSMessages
+      # List of hosts to connect to (in this case, a single host)
       hosts:
-        - mongo:27017  # Change localhost to mongo
+        # Connect to the MongoDB service on port 27017
+        - mongo:27017
+      # Options for the MongoDB connection
       options:
+        # Set the server selection timeout to 5 seconds
         server_selection_timeout: 5
