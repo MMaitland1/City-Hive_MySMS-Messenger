@@ -93,11 +93,11 @@ MySMSMessenger/
 │   │   │   │   ├── production.rb                    # Production environment config
 │   │   │   │   ├── test.rb                          # Test environment config
 │   │   │   ├── routes.rb                            # Routes configuration
-├── .dockerignore                                     # Docker ignore file
+├── .dockerignore                                    # Docker ignore file
 ├── docker-compose.yml                               # Docker Compose configuration
-├── Gemfile                                           # Ruby project dependencies
-├── Gemfile.lock                                      # Lock file for Ruby dependencies
-└── README.md                                         # Project documentation
+├── Gemfile                                          # Ruby project dependencies
+├── Gemfile.lock                                     # Lock file for Ruby dependencies
+└── README.md                                        # Project documentation
 ```
 
 ## **Getting Started**
