@@ -11,8 +11,6 @@
 - **Twilio Integration**: The app integrates with Twilio for SMS functionality, ensuring reliable message delivery.
 - **Frontend and Backend Separation**: The app’s frontend (React) communicates with the backend (Ruby on Rails) via **RESTful API calls**.
 
----
-
 ## **Technology Stack**
 
 ### **Frontend:**
@@ -33,8 +31,6 @@
 - **Docker Compose** (for containerized deployment of frontend, backend, and MongoDB)
 - **dotenv** (for managing environment variables)
 Great! Let's continue with the next two topics.
-
----
 
 ## **Project Structure**
 
