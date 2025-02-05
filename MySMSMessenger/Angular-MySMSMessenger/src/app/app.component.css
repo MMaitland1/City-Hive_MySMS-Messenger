@@ -17,15 +17,16 @@
 
 /* Logout Link Styling with Enhanced Interactivity */
 .logout-link {
-  position: absolute;        /* Position relative to parent container */
-  top: -20px;                /* Precise vertical positioning */
-  right: 20px;               /* Align to right side */
-  color: black;              /* Black text color */
-  cursor: pointer;           /* Show pointer cursor on hover */
-  font-size: 24px;           /* Large, readable font size */
-  transition: all 0.3s ease; /* Smooth transition for hover effects */
-  text-decoration: none;     /* Remove default underline */
+  position: absolute;        /* Ensures precise positioning within the parent */
+  top: -20px;                /* Moves the element above its parent, which might cause overlap issues */
+  right: 20px;               /* Aligns the element to the right side */
+  color: black;              /* Sets the text color to black */
+  cursor: pointer;           /* Ensures it behaves like a clickable link */
+  font-size: 24px;           /* Increases readability */
+  transition: all 0.3s ease; /* Smoothens any hover or interaction effects */
+  text-decoration: none;     /* Removes default underline for a cleaner look */
 }
+
 
 .logout-link:hover {
   text-decoration: underline;/* Underline on hover */
@@ -34,19 +35,20 @@
 
 /* Message History Link with Advanced Positioning */
 .message-history-link {
-  position: absolute;        /* Absolute positioning for precise placement */
-  top: 20%;                  /* Center vertically */
-  left: 50%;                 /* Center horizontally */
-  transform: translateX(51%);/* Fine-tune horizontal positioning */
-  font-size: 15px;           /* Smaller, subtle font size */
-  font-weight: bold;         /* Bold text for emphasis */
-  color: #000000;            /* Black text color */
-  text-decoration: none;     /* Remove default underline */
-  z-index: 20;               /* High z-index for visibility */
-  padding: 5px 10px;         /* Optional: add padding for larger click area */
-  border-radius: 4px;        /* Optional: rounded corners */
-  transition: background-color 0.3s ease; /* Smooth background transition */
+  position: absolute;        /* Absolutely positioned within its parent */
+  top: 20%;                  /* Positions the element 20% down from the parent’s height, which can cause movement when resizing */
+  left: 50%;                 /* Centers the element horizontally */
+  transform: translateX(51%);/* Shifts the element slightly to fine-tune alignment */
+  font-size: 15px;           /* Ensures the text is smaller but readable */
+  font-weight: bold;         /* Makes the text more prominent */
+  color: #000000;            /* Ensures the text is black */
+  text-decoration: none;     /* Removes the default underline */
+  z-index: 20;               /* Keeps the link above other elements */
+  padding: 5px 10px;         /* Increases click area for better usability */
+  border-radius: 4px;        /* Softens the corners */
+  transition: background-color 0.3s ease; /* Adds a smooth hover effect */
 }
+
 
 .message-history-link:hover {
   text-decoration: underline;/* Underline on hover */
