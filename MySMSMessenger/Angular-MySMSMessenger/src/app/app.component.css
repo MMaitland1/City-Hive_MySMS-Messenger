@@ -1,3 +1,5 @@
+
+
 .header {
   text-align: center;        /* Center-align header text */
   font-weight: 700;          /* Maximum text thickness for bold appearance */
@@ -33,7 +35,7 @@
 /* Message History Link with Advanced Positioning */
 .message-history-link {
   position: absolute;        /* Absolute positioning for precise placement */
-  top: 24%;                  /* Center vertically */
+  top: 20%;                  /* Center vertically */
   left: 50%;                 /* Center horizontally */
   transform: translateX(51%);/* Fine-tune horizontal positioning */
   font-size: 15px;           /* Smaller, subtle font size */
@@ -52,17 +54,18 @@
 
 /* Main Container with Flexible Layout */
 #container {
-  display: flex;             /* Flexbox for responsive layout */
-  justify-content: center;   /* Center content horizontally */
-  align-items: center;       /* Center content vertically */
-  gap: 20px;                 /* Space between flex items */
-  width: 100%;               /* Full width of parent */
-
-  top: -50px;                /* Optional: Offset from top edge */
-  height: calc(100vh - 100px);/* Full viewport height minus header */
-  position: relative;        /* Positioning context for absolute children */
-  overflow: hidden;          /* Hide overflowing content */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  width: 100vw;
+  height: 800px; /* FIXED HEIGHT: Adjust as needed */
+  position: absolute;
+  top: 10px; /* FIXED POSITION: Prevents movement */
+  left: 0;
+  overflow: hidden;
 }
+
 
 /* Side-by-Side Container for Responsive Design */
 .side-by-side-container {

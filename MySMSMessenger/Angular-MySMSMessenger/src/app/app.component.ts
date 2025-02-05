@@ -114,7 +114,7 @@ export class AppComponent implements OnInit {
   // Method to update the page title based on the current URL
   updateTitle(url: string) {
     const titleMap: { [key: string]: string } = {
-      '/': 'Home', // Home page title
+      '/': ' ', // Home page title
       '/login': 'Log In', // Log In page title
       '/signup': 'Sign Up', // Sign Up page title
       '/message': 'New Message', // New Message page title
